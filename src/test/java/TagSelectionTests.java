@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.MainPage;
@@ -17,7 +18,7 @@ public class TagSelectionTests {
 
     @Parameters(value = "browserName")
     @BeforeMethod
-    public void setUp(String browserName) {
+    public void setUp(@Optional("chrome)") String browserName) {
         WebDriverFactory.createDriver(browserName);
         driver = WebDriverFactory.getDriver();
         mainPage = new MainPage(driver);
